@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="space">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itinerary Planner - Wanderlust Travel Planner</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/itinerary.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Cohesive Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i data-lucide="plane"></i></span>
+        <span>Wanderlust</span>
+      </a>
+      
+      <div class="header-search">
+        <span class="search-icon"><i data-lucide="search"></i></span>
+        <input type="text" id="header-search-input" placeholder="Quick search destination...">
+        <div class="search-dropdown" id="header-search-dropdown"></div>
+      </div>
+
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="explorer.html" class="nav-link">Explorer</a>
+        <a href="itinerary.html" class="nav-link active">Itinerary</a>
+        <a href="expenses.html" class="nav-link">Expenses</a>
+        <a href="packing.html" class="nav-link">Packing</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+      </nav>
+
+      <div class="header-utils">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <div class="profile-widget" id="profile-widget" onclick="window.location.href='settings.html'">
+          <div class="avatar">AM</div>
+        </div>
+        <button class="hamburger" id="hamburger-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <div>
+        <h2>Daily Itinerary Planner</h2>
+        <p>Map out daily travel routes, schedule timings, log details, and automatically link expenses to your budget ledger.</p>
+      </div>
+    </div>
+
+    <div class="itinerary-container">
+      <!-- Left Panel: Activity form creation -->
+      <div class="glass-card itinerary-form fade-in-up">
+        <h3 style="display:inline-flex; align-items:center; gap:8px;">
+          <i data-lucide="calendar-plus" style="color:var(--primary);"></i> Schedule Activity
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px;">Configure details to populate the day timeline. Non-zero costs automatically synchronize to your expense log.</p>
+        
+        <form id="add-itinerary-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="itinerary-day">Target Day</label>
+              <select id="itinerary-day">
+                <option value="Day 1">Day 1</option>
+                <option value="Day 2">Day 2</option>
+                <option value="Day 3">Day 3</option>
+                <option value="Day 4">Day 4</option>
+                <option value="Day 5">Day 5</option>
+                <option value="Day 6">Day 6</option>
+                <option value="Day 7">Day 7</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="itinerary-time">Time</label>
+              <input type="time" id="itinerary-time" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="itinerary-title">Activity Title</label>
+            <input type="text" id="itinerary-title" placeholder="e.g. Guided Walk of Kyoto Gyoen" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="itinerary-category">Category</label>
+              <select id="itinerary-category">
+                <option value="activities">Activity / Tour</option>
+                <option value="transit">Transit / Flight</option>
+                <option value="lodging">Accommodation</option>
+                <option value="food">Restaurant / Bar</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="itinerary-cost">Estimated Cost ($)</label>
+              <input type="number" id="itinerary-cost" placeholder="0" min="0" step="any">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="itinerary-notes">Details / Reminders</label>
+            <textarea id="itinerary-notes" rows="3" placeholder="Confirmation codes, meet points, attire rules..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <i data-lucide="plus" style="width:18px; height:18px;"></i> Add to Itinerary
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Panel: Day Selector & Timeline List -->
+      <div class="timeline-panel">
+        <div class="day-selector" id="day-tabs-container">
+          <!-- Loaded dynamically in itinerary.js -->
+        </div>
+
+        <div class="timeline-list" id="timeline-list-container">
+          <!-- Loaded dynamically in itinerary.js -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Unified Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i data-lucide="plane"></i></span>
+          <span>Wanderlust</span>
+        </a>
+        <p>Your premium personal travel coordinator. Plan smart, track efficiently, and capture unforgettable memories with our modern toolkit.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="dashboard.html">Trip Dashboard</a></li>
+            <li><a href="explorer.html">Destination Search</a></li>
+            <li><a href="itinerary.html">Itinerary Timeline</a></li>
+            <li><a href="expenses.html">Expense Logs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Utility</h4>
+          <ul>
+            <li><a href="packing.html">Packing Checklist</a></li>
+            <li><a href="journal.html">Memory Journal</a></li>
+            <li><a href="settings.html">Profile & Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wanderlust Travel Inc. All rights reserved. Built with premium design standards.</span>
+      <div class="footer-socials">
+        <a href="#" title="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" title="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="#" title="Twitter"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

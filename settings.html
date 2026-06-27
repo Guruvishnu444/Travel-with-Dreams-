@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="space">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Wanderlust Travel Planner</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Cohesive Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i data-lucide="plane"></i></span>
+        <span>Wanderlust</span>
+      </a>
+      
+      <div class="header-search">
+        <span class="search-icon"><i data-lucide="search"></i></span>
+        <input type="text" id="header-search-input" placeholder="Quick search destination...">
+        <div class="search-dropdown" id="header-search-dropdown"></div>
+      </div>
+
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="explorer.html" class="nav-link">Explorer</a>
+        <a href="itinerary.html" class="nav-link">Itinerary</a>
+        <a href="expenses.html" class="nav-link">Expenses</a>
+        <a href="packing.html" class="nav-link">Packing</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+      </nav>
+
+      <div class="header-utils">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <div class="profile-widget" id="profile-widget" onclick="window.location.href='settings.html'">
+          <div class="avatar" style="border-color: var(--secondary);">AM</div>
+        </div>
+        <button class="hamburger" id="hamburger-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="fade-in-up">
+    <div class="section-header">
+      <div>
+        <h2>System Settings & Preferences</h2>
+        <p>Manage your travel style profiles, active layout themes, base currencies, and configurations.</p>
+      </div>
+    </div>
+
+    <!-- Theme Switcher Cards -->
+    <div class="glass-card settings-section-card">
+      <h3 style="display:inline-flex; align-items:center; gap:8px;">
+        <i data-lucide="palette" style="color:var(--primary);"></i> Visual Theme Presets
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">Choose a styling profile that aligns with your screen preferences.</p>
+      <div class="theme-options-grid">
+        <label class="theme-option" data-theme="space">
+          <input type="radio" name="theme-preset" value="space" checked>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="moon" style="width:14px; height:14px;"></i> Deep Space</span>
+          <div class="theme-preview-box space"></div>
+        </label>
+        <label class="theme-option" data-theme="light">
+          <input type="radio" name="theme-preset" value="light">
+          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="sun" style="width:14px; height:14px;"></i> Morning Clean</span>
+          <div class="theme-preview-box light"></div>
+        </label>
+        <label class="theme-option" data-theme="sunrise">
+          <input type="radio" name="theme-preset" value="sunrise">
+          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="sunrise" style="width:14px; height:14px;"></i> Sunrise Warm</span>
+          <div class="theme-preview-box sunrise"></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Profile and Budget Preferences Form -->
+    <div class="glass-card settings-section-card">
+      <h3 style="display:inline-flex; align-items:center; gap:8px;">
+        <i data-lucide="user" style="color:var(--primary);"></i> Travel Profile
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:24px;">Configure details to adjust local planners and dashboard trackers.</p>
+      
+      <form id="settings-profile-form">
+        <div class="profile-settings-layout">
+          <div class="profile-avatar-select">
+            <div class="profile-avatar-large" id="settings-avatar-large">AM</div>
+          </div>
+          
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label for="settings-name">Full Name</label>
+              <input type="text" id="settings-name" placeholder="Your Name" style="width:100%;" required>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="settings-style">Travel Persona</label>
+                <select id="settings-style" style="width:100%;">
+                  <option value="adventure">Nature Explorer</option>
+                  <option value="cultural">Museum Scholar</option>
+                  <option value="luxury">Premium Relaxation</option>
+                  <option value="backpacker">Budget Backpacker</option>
+                </select>
+              </div>
+              
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="settings-budget">Overall Trip Budget ($)</label>
+                <input type="number" id="settings-budget" placeholder="3500" style="width:100%;" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px; border-top:1px solid var(--glass-border); padding-top:20px; display:flex; justify-content:flex-end;">
+          <button type="submit" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:6px;">
+            <i data-lucide="check" style="width:18px; height:18px;"></i> Save Profile Configuration
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Storage Reset Controls -->
+    <div class="glass-card settings-section-card" style="border-color: rgba(239, 68, 68, 0.15); background: rgba(239, 68, 68, 0.02);">
+      <h3 style="color:var(--danger); border-bottom-color:rgba(239, 68, 68, 0.1); display:inline-flex; align-items:center; gap:8px;">
+        <i data-lucide="alert-triangle"></i> Danger Zone
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">Permanently wipe custom user storage records from this browser.</p>
+      <div>
+        <button class="btn btn-secondary" id="reset-data-btn" style="color:white; background:var(--danger); border-color:var(--danger); display:inline-flex; align-items:center; gap:8px;">
+          <i data-lucide="trash-2" style="width:16px; height:16px;"></i> Reset Data to Defaults
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Unified Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i data-lucide="plane"></i></span>
+          <span>Wanderlust</span>
+        </a>
+        <p>Your premium personal travel coordinator. Plan smart, track efficiently, and capture unforgettable memories with our modern toolkit.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="dashboard.html">Trip Dashboard</a></li>
+            <li><a href="explorer.html">Destination Search</a></li>
+            <li><a href="itinerary.html">Itinerary Timeline</a></li>
+            <li><a href="expenses.html">Expense Logs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Utility</h4>
+          <ul>
+            <li><a href="packing.html">Packing Checklist</a></li>
+            <li><a href="journal.html">Memory Journal</a></li>
+            <li><a href="settings.html">Profile & Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wanderlust Travel Inc. All rights reserved. Built with premium design standards.</span>
+      <div class="footer-socials">
+        <a href="#" title="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" title="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="#" title="Twitter"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

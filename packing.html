@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="space">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing Checklist - Wanderlust Travel Planner</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/packing.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Cohesive Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i data-lucide="plane"></i></span>
+        <span>Wanderlust</span>
+      </a>
+      
+      <div class="header-search">
+        <span class="search-icon"><i data-lucide="search"></i></span>
+        <input type="text" id="header-search-input" placeholder="Quick search destination...">
+        <div class="search-dropdown" id="header-search-dropdown"></div>
+      </div>
+
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="explorer.html" class="nav-link">Explorer</a>
+        <a href="itinerary.html" class="nav-link">Itinerary</a>
+        <a href="expenses.html" class="nav-link">Expenses</a>
+        <a href="packing.html" class="nav-link active">Packing</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+      </nav>
+
+      <div class="header-utils">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <div class="profile-widget" id="profile-widget" onclick="window.location.href='settings.html'">
+          <div class="avatar">AM</div>
+        </div>
+        <button class="hamburger" id="hamburger-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <div>
+        <h2>Smart Packing Checklist</h2>
+        <p>Stay organized with categorized item filters, interactive progress tracking, and style-based preset loaders.</p>
+      </div>
+    </div>
+
+    <div class="packing-container">
+      <!-- Left Panel: Progress Wheel & Presets -->
+      <div class="main-left fade-in-up">
+        <!-- Progress Wheel Card -->
+        <div class="glass-card progress-wheel-container">
+          <h3 style="display:inline-flex; align-items:center; gap:8px;">
+            <i data-lucide="package" style="color:var(--primary);"></i> Prep Completion
+          </h3>
+          <div class="progress-wheel" style="margin-top:24px;">
+            <svg width="200" height="200">
+              <circle class="bg" cx="100" cy="100" r="90"></circle>
+              <!-- R = 90. Circumference = 2 * PI * R = 565.48 -->
+              <circle class="fg" id="progress-ring-circle" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+            </svg>
+            <div class="progress-wheel-text" id="progress-percent">0%</div>
+          </div>
+          <p id="progress-items-packed" style="font-size:0.95rem; color:var(--text-secondary); font-weight:600;">0 / 0 Packed</p>
+        </div>
+
+        <!-- Presets Card -->
+        <div class="glass-card" style="margin-top:32px;">
+          <h3 style="display:inline-flex; align-items:center; gap:8px;">
+            <i data-lucide="clipboard-list" style="color:var(--secondary);"></i> Load Travel Presets
+          </h3>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Import pre-configured equipment based on your travel style.</p>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <button class="btn btn-secondary" id="preset-beach-btn" style="justify-content:flex-start; display:inline-flex; align-items:center; gap:8px;">
+              <i data-lucide="sun" style="width:16px; height:16px; color:var(--secondary);"></i> Beach Trip Pack
+            </button>
+            <button class="btn btn-secondary" id="preset-hike-btn" style="justify-content:flex-start; display:inline-flex; align-items:center; gap:8px;">
+              <i data-lucide="mountain" style="width:16px; height:16px; color:var(--primary);"></i> Mountain Adventure Pack
+            </button>
+            <button class="btn btn-secondary" id="preset-city-btn" style="justify-content:flex-start; display:inline-flex; align-items:center; gap:8px;">
+              <i data-lucide="compass" style="width:16px; height:16px; color:var(--info);"></i> City Explorer Pack
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel: List view -->
+      <div class="packing-panel">
+        <!-- Quick Add Bar -->
+        <div class="glass-card fade-in-up">
+          <h3 style="display:inline-flex; align-items:center; gap:8px;">
+            <i data-lucide="plus-circle" style="color:var(--primary);"></i> Add Custom Item
+          </h3>
+          <form id="add-packing-form" style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+            <input type="text" id="packing-item-name" placeholder="e.g. Universal Adapter" style="flex:2; min-width:200px;" required>
+            <select id="packing-item-category" style="flex:1; min-width:120px;">
+              <option value="essentials">Essentials</option>
+              <option value="clothing">Clothing</option>
+              <option value="tech">Electronics</option>
+              <option value="hygiene">Hygiene / Toiletries</option>
+            </select>
+            <button type="submit" class="btn btn-primary" style="padding:10px 20px; display:inline-flex; align-items:center; gap:6px;">
+              <i data-lucide="plus" style="width:16px; height:16px;"></i> Add
+            </button>
+          </form>
+        </div>
+
+        <!-- Category Select & Checklist list -->
+        <div class="glass-card fade-in-up">
+          <div class="explorer-filters" style="margin-bottom:20px; margin-top:0;">
+            <div class="filter-chip active" data-category="all" onclick="switchPackingTab('all')">All Items</div>
+            <div class="filter-chip" data-category="essentials" onclick="switchPackingTab('essentials')" style="display:inline-flex; align-items:center; gap:6px;">
+              <i data-lucide="ticket" style="width:14px; height:14px;"></i> Essentials
+            </div>
+            <div class="filter-chip" data-category="clothing" onclick="switchPackingTab('clothing')" style="display:inline-flex; align-items:center; gap:6px;">
+              <i data-lucide="shirt" style="width:14px; height:14px;"></i> Clothing
+            </div>
+            <div class="filter-chip" data-category="tech" onclick="switchPackingTab('tech')" style="display:inline-flex; align-items:center; gap:6px;">
+              <i data-lucide="cpu" style="width:14px; height:14px;"></i> Electronics
+            </div>
+            <div class="filter-chip" data-category="hygiene" onclick="switchPackingTab('hygiene')" style="display:inline-flex; align-items:center; gap:6px;">
+              <i data-lucide="droplet" style="width:14px; height:14px;"></i> Hygiene
+            </div>
+          </div>
+
+          <div class="packing-list" id="packing-list-container">
+            <!-- Loaded dynamically in packing.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Unified Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i data-lucide="plane"></i></span>
+          <span>Wanderlust</span>
+        </a>
+        <p>Your premium personal travel coordinator. Plan smart, track efficiently, and capture unforgettable memories with our modern toolkit.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="dashboard.html">Trip Dashboard</a></li>
+            <li><a href="explorer.html">Destination Search</a></li>
+            <li><a href="itinerary.html">Itinerary Timeline</a></li>
+            <li><a href="expenses.html">Expense Logs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Utility</h4>
+          <ul>
+            <li><a href="packing.html">Packing Checklist</a></li>
+            <li><a href="journal.html">Memory Journal</a></li>
+            <li><a href="settings.html">Profile & Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wanderlust Travel Inc. All rights reserved. Built with premium design standards.</span>
+      <div class="footer-socials">
+        <a href="#" title="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" title="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="#" title="Twitter"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

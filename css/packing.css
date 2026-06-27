@@ -1,0 +1,115 @@
+/* css/packing.css */
+
+.packing-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+}
+
+.progress-wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.progress-wheel {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 24px;
+}
+
+.progress-wheel svg {
+  transform: rotate(-90deg);
+}
+
+.progress-wheel circle {
+  fill: none;
+  stroke-width: 12px;
+}
+
+.progress-wheel circle.bg {
+  stroke: var(--glass-border);
+}
+
+.progress-wheel circle.fg {
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+.progress-wheel-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.packing-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.packing-category-title {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.packing-list {
+  display: grid;
+  gap: 12px;
+}
+
+.packing-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: var(--border-radius-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.packing-item:hover {
+  background: var(--glass-highlight);
+}
+
+.packing-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.packing-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  transition: all var(--transition-fast);
+}
+
+.packing-item.checked .packing-checkbox {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.packing-item.checked span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}

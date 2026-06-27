@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="space">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Destinations - Wanderlust Travel Planner</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/explorer.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Cohesive Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i data-lucide="plane"></i></span>
+        <span>Wanderlust</span>
+      </a>
+      
+      <div class="header-search">
+        <span class="search-icon"><i data-lucide="search"></i></span>
+        <input type="text" id="header-search-input" placeholder="Quick search destination...">
+        <div class="search-dropdown" id="header-search-dropdown"></div>
+      </div>
+
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="explorer.html" class="nav-link active">Explorer</a>
+        <a href="itinerary.html" class="nav-link">Itinerary</a>
+        <a href="expenses.html" class="nav-link">Expenses</a>
+        <a href="packing.html" class="nav-link">Packing</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+      </nav>
+
+      <div class="header-utils">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <i data-lucide="sun"></i>
+        </button>
+        <div class="profile-widget" id="profile-widget" onclick="window.location.href='settings.html'">
+          <div class="avatar">AM</div>
+        </div>
+        <button class="hamburger" id="hamburger-btn">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <div>
+        <h2>Destination Explorer</h2>
+        <p>Browse global hotspots, research local visa regulations, active forecasts, and plan direct trips.</p>
+      </div>
+    </div>
+
+    <!-- Search and filter chip container -->
+    <div class="glass-card explorer-search">
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+        <div style="flex:1; position:relative;">
+          <input type="text" id="explorer-search-field" placeholder="Search cities or keywords..." style="width:100%; padding-left:40px;">
+          <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); display:inline-flex; align-items:center;">
+            <i data-lucide="search" style="width:16px; height:16px;"></i>
+          </span>
+        </div>
+      </div>
+      <div class="explorer-filters">
+        <div class="filter-chip active" data-filter="all">All Locations</div>
+        <div class="filter-chip" data-filter="cultural" style="display:inline-flex; align-items:center; gap:6px;">
+          <i data-lucide="landmark" style="width:14px; height:14px;"></i> Cultural
+        </div>
+        <div class="filter-chip" data-filter="beach" style="display:inline-flex; align-items:center; gap:6px;">
+          <i data-lucide="sun" style="width:14px; height:14px;"></i> Beach & Coastal
+        </div>
+        <div class="filter-chip" data-filter="adventure" style="display:inline-flex; align-items:center; gap:6px;">
+          <i data-lucide="mountain" style="width:14px; height:14px;"></i> Adventure & Nature
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid to render cards (Dynamic items populated in explorer.js) -->
+    <div class="destination-detail-grid" id="destinations-detail-grid">
+      <!-- Generated in explorer.js -->
+    </div>
+  </main>
+
+  <!-- Unified Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i data-lucide="plane"></i></span>
+          <span>Wanderlust</span>
+        </a>
+        <p>Your premium personal travel coordinator. Plan smart, track efficiently, and capture unforgettable memories with our modern toolkit.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="dashboard.html">Trip Dashboard</a></li>
+            <li><a href="explorer.html">Destination Search</a></li>
+            <li><a href="itinerary.html">Itinerary Timeline</a></li>
+            <li><a href="expenses.html">Expense Logs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Utility</h4>
+          <ul>
+            <li><a href="packing.html">Packing Checklist</a></li>
+            <li><a href="journal.html">Memory Journal</a></li>
+            <li><a href="settings.html">Profile & Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wanderlust Travel Inc. All rights reserved. Built with premium design standards.</span>
+      <div class="footer-socials">
+        <a href="#" title="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" title="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="#" title="Twitter"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

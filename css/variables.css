@@ -1,0 +1,92 @@
+/* css/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Color Palette - Default Dark Premium (Theme: Deep Space) */
+  --bg-primary: #0a0b10;
+  --bg-secondary: #12131a;
+  --bg-tertiary: #191b26;
+  
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+
+  --primary: #6366f1;         /* Violet/Indigo */
+  --primary-hover: #4f46e5;
+  --primary-glow: rgba(99, 102, 241, 0.3);
+
+  --secondary: #f59e0b;       /* Gold/Amber */
+  --secondary-hover: #d97706;
+  --secondary-glow: rgba(245, 158, 11, 0.2);
+
+  --success: #10b981;         /* Emerald */
+  --danger: #ef4444;          /* Crimson Rose */
+  --info: #0ea5e9;            /* Sky Blue */
+
+  /* Glassmorphism & UI Accents */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 32px;
+
+  /* Transition speeds */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme overrides */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --primary: #4f46e5;
+  --primary-hover: #3730a3;
+  --primary-glow: rgba(79, 70, 229, 0.15);
+
+  --secondary: #d97706;
+  --secondary-hover: #b45309;
+  --secondary-glow: rgba(217, 119, 6, 0.15);
+
+  --glass-bg: rgba(15, 23, 42, 0.02);
+  --glass-border: rgba(15, 23, 42, 0.06);
+  --glass-highlight: rgba(15, 23, 42, 0.04);
+  --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Sunset / Warm Theme overrides */
+[data-theme="sunrise"] {
+  --bg-primary: #181212;
+  --bg-secondary: #221a1a;
+  --bg-tertiary: #2d2222;
+  
+  --text-primary: #fff2eb;
+  --text-secondary: #e2bca8;
+  --text-muted: #a68474;
+
+  --primary: #ff6b4a;         /* Vibrant Coral Sunset */
+  --primary-hover: #e04f2f;
+  --primary-glow: rgba(255, 107, 74, 0.3);
+
+  --secondary: #ffd166;       /* Warm yellow */
+  --secondary-hover: #e0b44b;
+  --secondary-glow: rgba(255, 209, 102, 0.2);
+
+  --glass-bg: rgba(255, 107, 74, 0.04);
+  --glass-border: rgba(255, 107, 74, 0.1);
+  --glass-highlight: rgba(255, 209, 102, 0.08);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
