@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="space">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +35,6 @@
       </nav>
 
       <div class="header-utils">
-        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
-          <i data-lucide="sun"></i>
-        </button>
         <div class="profile-widget" id="profile-widget" onclick="window.location.href='settings.html'">
           <div class="avatar" style="border-color: var(--secondary);">AM</div>
         </div>
@@ -55,32 +52,6 @@
         <p>Manage your travel style profiles, active layout themes, base currencies, and configurations.</p>
       </div>
     </div>
-
-    <!-- Theme Switcher Cards -->
-    <div class="glass-card settings-section-card">
-      <h3 style="display:inline-flex; align-items:center; gap:8px;">
-        <i data-lucide="palette" style="color:var(--primary);"></i> Visual Theme Presets
-      </h3>
-      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">Choose a styling profile that aligns with your screen preferences.</p>
-      <div class="theme-options-grid">
-        <label class="theme-option" data-theme="space">
-          <input type="radio" name="theme-preset" value="space" checked>
-          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="moon" style="width:14px; height:14px;"></i> Deep Space</span>
-          <div class="theme-preview-box space"></div>
-        </label>
-        <label class="theme-option" data-theme="light">
-          <input type="radio" name="theme-preset" value="light">
-          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="sun" style="width:14px; height:14px;"></i> Morning Clean</span>
-          <div class="theme-preview-box light"></div>
-        </label>
-        <label class="theme-option" data-theme="sunrise">
-          <input type="radio" name="theme-preset" value="sunrise">
-          <span style="display:inline-flex; align-items:center; gap:6px;"><i data-lucide="sunrise" style="width:14px; height:14px;"></i> Sunrise Warm</span>
-          <div class="theme-preview-box sunrise"></div>
-        </label>
-      </div>
-    </div>
-
     <!-- Profile and Budget Preferences Form -->
     <div class="glass-card settings-section-card">
       <h3 style="display:inline-flex; align-items:center; gap:8px;">
